@@ -12,6 +12,12 @@ F#のことが気になって調べてみたらcanopyというテストフレー
 https://dotnet.microsoft.com/download/dotnet-core/2.2
 
 
+日本語フォントをインストールしていないと、ブラウザ表示が文字化けするので以下を入れておく。
+
+```sh
+sudo apt-get install fonts-ipafont-gothic fonts-ipafont-mincho
+```
+
 ## プロジェクトの作成
 
 https://lefthandedgoat.github.io/canopy/  
