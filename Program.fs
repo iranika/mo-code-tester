@@ -5,6 +5,7 @@ open canopy.classic
 open canopy
 
 canopy.configuration.chromeDir <- System.AppContext.BaseDirectory
+failScreenshotPath <- "./failscreenshot"
 
 let site_url = "https://iranika.github.io/mo-code/"
 //start an instance of chrome
@@ -19,8 +20,8 @@ start chrome
         document.body.innerHTML+= `<div id=\"perf\" style=\"visibility=hidden\">${JSON.stringify(perf)}</div>`
         " |> ignore
     let perf = read "#perf"
-    printfn "PageLoadTime:%s" perf
-    //screenshot "." "sample.png" |> ignore
+    printfn "\"PageLoadTime\":%s" perf
+    //// screenshot "." "sample.png" |> ignore
 
 //this is how you define a test
 "モーダル閉じる" &&& fun _ ->
@@ -31,8 +32,6 @@ start chrome
     click ".modal-label" //モーダルラベル(右上バツ)をクリック
     notDisplayed "#modal"   //モーダルが非表示になっている
     //js "(performance.timing.responseEnd - performance.timing.responseStart)"
-
-    
 
 "最初から読む" &&& fun _ ->
     url "https://iranika.github.io/mo-code/index.html" //mo-codeのサイトを開く
@@ -62,7 +61,7 @@ start chrome
         document.body.innerHTML+= `<div id=\"perf\" style=\"visibility=hidden\">${JSON.stringify(perf)}</div>`
         " |> ignore
     let perf = read "#perf"
-    printfn "PageLoadTime:%s" perf
+    printfn "\"PageLoadTime\":%s" perf
 
 "スクロールによるオートロード" &&& fun _ ->
     url "https://iranika.github.io/mo-code/index.html" //mo-codeのサイトを開く#5のページ
