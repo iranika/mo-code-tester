@@ -2,10 +2,12 @@
 open canopy.runner.classic
 open canopy.configuration
 open canopy.classic
-open canopy
+open canopy.reporters
 
 canopy.configuration.chromeDir <- System.AppContext.BaseDirectory
 failScreenshotPath <- "./failscreenshot"
+autoPinBrowserRightOnLaunch <- false
+reporter <- new JUnitReporter("./TestResults.xml")
 
 let site_url = "https://iranika.github.io/mo-code/"
 //start an instance of chrome
